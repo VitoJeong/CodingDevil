@@ -56,3 +56,39 @@ for(item in Mike) {
     console.log(Mike[item])
 }
 
+let boy = {
+    name: 'Mike',
+    showName: function(){
+        // console.log(boy.name)
+        console.log(this.name)
+    }
+}
+
+let girl = {
+    name : 'Jane',
+    sayHello:function(){
+        console.log(`Hello,I'm ${this.name}.`)
+    }
+}
+
+boy.showName();
+girl.sayHello();
+
+let man = boy;
+man.name = 'Tom'
+boy.showName();
+
+boy = null;
+
+man.showName();
+
+let boyT = {
+    name: 'Mike',
+    sayThis: () => {
+        // console.log(boy.name)
+        console.log(this);
+    }
+};
+
+boyT.sayThis();
+// arrow function의 this 해당 객체가아닌 전역객체(window)에 접근한다.
