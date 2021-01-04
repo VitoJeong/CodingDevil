@@ -6,9 +6,9 @@ var name = 'Mike';
 // TDZ(Temporal Dead Zone)
 
 // console.log(HELLO)
+const HELLO = '안녕하세요';
 // 호이스팅은 일어나지만 코드를 예측하여 에러를 발생시킨다.
 // let과 const는 TDZ의 영항을 받는다. -> 블록스코프이기때문 
-const HELLO = '안녕하세요';
 
 let age = 30;
 showAge = () => {
