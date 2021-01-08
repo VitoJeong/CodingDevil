@@ -36,3 +36,42 @@ let newDD = dd.map((element, index) => {
 console.log(newDD)
 
 // join, split
+arr = [13,8,5,27]
+
+arr.sort((a,b)=>{
+    return a - b;
+})
+
+console.log(arr)
+
+// lodash찾아볼것
+// for, forof, foreach
+result = 0;
+arr.forEach((num) => {
+    result += num;
+})
+console.log(result)
+
+resut = arr.reduce((prev, cur)=>{
+    console.log(prev)
+    return prev + cur;
+},100)
+console.log(result)
+
+let stockList = [
+    {ticker: 'QCOM', MC:176},
+    {ticker: 'TSM', MC:553},
+    {ticker: 'TSLA', MC:773},
+    {ticker: 'NIKE', MC:228},
+    {ticker: 'LVMH', MC:260},
+    {ticker: 'NVDA', MC:330}
+]
+
+result = stockList.reduce((prev, cur)=>{
+    if(cur.MC > 280) {
+        prev.push(cur.ticker);
+    }
+    return prev;
+},[]);
+
+console.log(result)
