@@ -79,13 +79,23 @@ console.time('callback');
 //     }
 // )
 
-userStorage.login(id, pwd)
-    .then(id => userStorage.getprivilege(id))
-    .then(userWithRole => alert(`Hello ${userWithRole.name}, you have a ${userWithRole.role} role!`))
-    .catch(console.log)
-    .finally(() => {
+// userStorage.login(id, pwd)
+//     .then(id => userStorage.getprivilege(id))
+//     .then(userWithRole => alert(`Hello ${userWithRole.name}, you have a ${userWithRole.role} role!`))
+//     .catch(console.log)
+//     .finally(() => {
         
-        console.log('로그인 구현!')
-        console.timeEnd('callback')
+//         console.log('로그인 구현!')
+//         console.timeEnd('callback')
 
-    })
+//     })
+
+
+async function loginWithAsync(id, pwd) {
+    const userId = await userStorage.login(id,pwd);
+    const result = await userStorage.getprivilege(userId);
+
+    return result
+}
+
+loginWithAsync(id, pwd).then(userWithRole => alert(`Hello ${userWithRole.name}, you have a ${userWithRole.role} role!`)).catch(console.log)
